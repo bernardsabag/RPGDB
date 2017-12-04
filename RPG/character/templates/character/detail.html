@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ character.name }}</title>
+</head>
+<body>
+<h1>Hi there {{ character.name }}!</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<h3>you belong to {{ user }}</h3>
+<ul>{{ character.inventory}}</ul>
+
+<h4> Your inventory contains:</h4>
+<ul>{% for inventory in character.inventory_set.all %}
+    {% for item in inventory.item_set.all %}
+        <li> {{ item }}</li>
+    {% endfor %}
+    {% endfor %}
+
+</ul>
+</body>
+</html>

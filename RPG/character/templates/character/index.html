@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Characters</title>
+</head>
+<h1>Available characters</h1>
+    <body>
+        {% if character_list %}
+            <ul>
+                {% for character in character_list %}
+                <li><a href="{% url 'detail' character.id %}">{{ character.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No Characters are available.</p>
+        {% endif %}
+    </body>
+</html>
